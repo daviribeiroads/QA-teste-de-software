@@ -1,0 +1,36 @@
+{
+    "aba_nfe_x": 300,
+    "aba_nfe_y_offset": 45,
+    "menu_documento": [
+        782,
+        146
+    ],
+    "nfe_entrada_1": [
+        858,
+        233
+    ],
+    "nfe_entrada_2": [
+        856,
+        229
+    ],
+    "hover_acoes": [
+        878,
+        290
+    ],
+    "copiar_nota": [
+        1000,
+        338
+    ],
+    "gravar_nota": [
+        555,
+        192
+    ],
+    "confirmar_gravacao": [
+        881,
+        477
+    ],
+    "emitir_nota": [
+        250,
+        236
+    ]
+}
