@@ -15,6 +15,8 @@ O objetivo do projeto é acelerar a criação de testes automatizados, principal
 
 Para criar as funções que digita o usuário e a senha, no campo "Nome da Ação: digitar_usuario e identificar: auto
 
+Antes de utilizar o gerador de automação, você pode usar o arquivo `localizar_mouse.py` para capturar rapidamente as coordenadas dos botões em sistemas Desktop que não possuem seletores acessíveis.
+
 ---
 
 # Funcionalidades
