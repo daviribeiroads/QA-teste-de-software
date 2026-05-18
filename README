@@ -13,7 +13,7 @@ O sistema gera automaticamente arquivos Python prontos para execução, utilizan
 
 O objetivo do projeto é acelerar a criação de testes automatizados, principalmente em sistemas legados ERP, aplicações Delphi e sistemas Web corporativos.
 
-Para criar as funções que digita o usuário e a senha, no campo "Nome da Ação: digitar_usuário e identificar: auto
+Para criar as funções que digita o usuário e a senha, no campo "Nome da Ação: digitar_usuario e identificar: auto
 
 ---
 
