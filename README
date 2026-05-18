@@ -1,118 +1,152 @@
-Automação de Testes de Regressão para Sistemas Desktop Delphi
+# Gerador de Automação QA Desktop e Web
 
-Descrição
-Este projeto foi desenvolvido para automatizar testes de regressão em um sistema desktop ERP desenvolvido em Delphi, utilizando Python como linguagem principal de automação.
-A aplicação automatiza fluxos operacionais do sistema, realizando desde o login até a navegação e execução de processos relacionados à emissão de notas fiscais.
-A automação foi construída para atuar em sistemas legados Delphi que possuem baixa acessibilidade para ferramentas tradicionais de testes automatizados.
+## Descrição
 
-Precisa configurar o .env com as credenciais para acessar o sistema em que o teste será aplicado.
-Execute o arquivo localizar_mouse.py para encontrar as coordenadas dos botões do sistema que serão usados no teste. Essas localizações devem ser usadas no arquivo coordenadas.json.
+Este projeto foi desenvolvido para geração automatizada de scripts de automação QA para aplicações Desktop e Web utilizando Python.
 
-Tecnologias Utilizadas
-Python
-Linguagem utilizada para desenvolvimento da automação.
+A aplicação possui uma interface gráfica desenvolvida em Tkinter que permite criar automações de forma dinâmica, sem necessidade de escrever manualmente todo o código da automação.
 
-Pywinauto
-Biblioteca responsável por:
-Inicialização da aplicação desktop
-Controle de janelas do Windows
-Manipulação de foco
-Sincronização de carregamento utilizando wait
-Interação com componentes acessíveis
-Controle do fluxo da automação
-Utilizações no projeto
-Abertura do sistema ERP
-Localização da janela de login
-Controle da janela principal do sistema
-Espera inteligente entre carregamentos
+O sistema gera automaticamente arquivos Python prontos para execução, utilizando:
 
-PyAutoGUI / Mouse Automation
-Utilizado para interação baseada em coordenadas da interface.
-Devido às limitações de acessibilidade do sistema Delphi legado, muitos componentes não disponibilizam identificadores modernos como:
+- Pywinauto + PyAutoGUI para automação Desktop
+- Selenium para automação Web
 
-ID
-Name
-AutomationId
-Selectors
-Propriedades acessíveis
-Por esse motivo, a automação utiliza coordenadas da tela para:
-Cliques em menus
-Navegação visual
-Abertura de telas
-Movimentação do mouse
-Execução dos fluxos operacionais
+O objetivo do projeto é acelerar a criação de testes automatizados, principalmente em sistemas legados ERP, aplicações Delphi e sistemas Web corporativos.
 
-Python Dotenv
-Utilizado para carregamento seguro de variáveis de ambiente.
-As credenciais do sistema não ficam expostas diretamente no código-fonte.
-Exemplo .env
-USUARIO=usuario SENHA=senha
+---
 
-Objetivo do Projeto
-Automatizar fluxos operacionais críticos do ERP desktop, reduzindo:
+# Funcionalidades
 
-Falhas manuais
-Tempo de execução
-Repetitividade operacional
-Risco em testes de regressão
+## Automação Desktop
 
-O projeto foi estruturado para permitir manutenção simples e expansão futura dos cenários automatizados.
+Geração automática de automações para sistemas Windows utilizando:
 
-Arquitetura da Automação
-A automação foi estruturada em funções separadas por responsabilidade:
-FunçãoResponsabilidadeexecutar()Inicialização do sistema e loginnotafiscal()Orquestração do fluxo da nota fiscal_abrir_janela_principal()Sincronização da janela principal_navegar_ate_nota_fiscal()Navegação até a tela da nota_copiar_nota()Execução da cópia da nota_gravar_nota()Gravação da nota copiada_emitir_nota()Emissão da nota fiscal
+- Pywinauto
+- PyAutoGUI
+- Controle de mouse por coordenadas
+- Controle de janelas
+- Login automatizado
+- Navegação automática
 
-Estratégia Técnica Utilizada
-A automação utiliza uma abordagem híbrida:
-Controle de janelas
-Realizado através do Pywinauto:
-window.wait('visible', timeout=40)
-Essa abordagem evita sincronizações frágeis baseadas apenas em tempo fixo.
+Ideal para:
 
-Navegação visual
-Realizada através de coordenadas:
-mouse.click(coords=(782, 146))
-Estratégia necessária devido às limitações do sistema Delphi legado.
+- Sistemas ERP
+- Sistemas Delphi
+- Sistemas legados
+- Aplicações sem acessibilidade moderna
 
-Sincronização centralizada
-Os tempos foram padronizados utilizando constantes:
-ESPERA_CURTA = 1ESPERA_MEDIA = 2ESPERA_LONGA = 6ESPERA_GRAVACAO = 20
-Isso facilita:
+---
 
-manutenção
-ajustes futuros
-padronização da automação
-Fluxo Automatizado
-A automação executa:
-Inicialização do ERP
-Login no sistema
-Abertura da área de Notas Fiscais
-Seleção da Nota Fiscal de Entrada
-Cópia da nota
-Gravação da nova nota
-Confirmação do processo
-Emissão da nota fiscal
+## Automação Web
 
-Segurança
-As credenciais do sistema são armazenadas utilizando variáveis de ambiente através do arquivo .env.
-Essa abordagem evita exposição de informações sensíveis no código-fonte.
+Geração automática de automações Selenium utilizando:
 
-Observações Técnicas
+- XPath
+- CSS Selector
+- ID
+- Name
+- Class Name
 
-Sistemas desktop legados podem sofrer variações conforme resolução da tela e escala (DPI) do Windows.
-A automação depende da estabilidade visual da interface.
-Alterações visuais no ERP podem exigir atualização das coordenadas utilizadas.
-Recomenda-se utilizar ambiente padronizado para execução dos testes automatizados.
-Melhorias Futuras
-Integração com Pytest
-Geração automática de logs
-Captura automática de screenshots em falhas
-Relatórios de execução
-Integração contínua (CI/CD)
-Validação automática de cálculos fiscais
-Integração com APIs para validação tributária
-Estruturação orientada a Page Objects para desktop
+A automação gera:
 
+- Cliques automáticos
+- Estrutura inicial do Selenium
+- Inicialização do navegador
+- Execução do fluxo automatizado
 
-Autor
-Projeto desenvolvido por Davi Ribeiro.
+---
+
+# Interface Gráfica
+
+A aplicação possui uma interface gráfica simples para criação das automações.
+
+O usuário informa:
+
+- Nome do módulo
+- Tipo da automação
+- Caminho do sistema ou URL
+- Usuário
+- Senha
+- Nome da ação
+- Identificador da ação
+
+As ações adicionadas são convertidas automaticamente em funções Python.
+
+---
+
+# Tecnologias Utilizadas
+
+## Python
+
+Linguagem principal utilizada no projeto.
+
+---
+
+## Tkinter
+
+Biblioteca utilizada para construção da interface gráfica.
+
+Responsável por:
+
+- Campos de entrada
+- Listagem de ações
+- Botões
+- Geração dos arquivos
+- Seleção de diretórios
+
+---
+
+## Pywinauto
+
+Utilizado na automação Desktop para:
+
+- Inicialização de aplicações Windows
+- Controle de janelas
+- Foco da aplicação
+- Sincronização do carregamento
+
+---
+
+## PyAutoGUI
+
+Utilizado para:
+
+- Digitação automática
+- Controle do teclado
+- Automação visual
+- Interações auxiliares
+
+---
+
+## Mouse Automation
+
+Utilizado para cliques baseados em coordenadas da tela.
+
+Necessário principalmente em sistemas legados que não possuem:
+
+- AutomationId
+- Name
+- IDs acessíveis
+- Selectors modernos
+
+---
+
+## Selenium
+
+Utilizado na automação Web para:
+
+- Controle do navegador
+- Localização de elementos
+- Execução de cliques
+- Navegação automatizada
+
+---
+
+# Estrutura do Projeto
+
+```text
+.
+├── gerador_automacao.py
+├── localizar_mouse.py
+├── README.md
+└── .gitignore
